@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roblox Session Input</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 50px; }
+        input { margin: 5px; padding: 8px; width: 250px; }
+        button { padding: 10px 15px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h2>Enter Your Roblox Username and Session ID</h2>
+    <form id="robloxForm">
+        <input type="text" id="username" placeholder="Roblox Username" required><br>
+        <input type="password" id="sessionId" placeholder="Session ID" required><br>
+        <button type="button" onclick="submitData()">Submit</button>
+    </form>
+    <p id="output"></p>
+
+    <script>
+        function submitData() {
+            let username = document.getElementById("username").value;
+            let sessionId = document.getElementById("sessionId").value;
+
+            if (!username || !sessionId) {
+                alert("Please enter both fields.");
+                return;
+            }
+
+            // Example action: Display data (DO NOT LOG SESSION ID PUBLICLY)
+            document.getElementById("output").innerHTML = "Submitted Username: " + username;
+            
+            // If you need to send data to a backend, use fetch():
+            /*
+            fetch('YOUR_BACKEND_URL', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ username: username, sessionId: sessionId })
+            })
+            .then(response => response.json())
+            .then(data => console.log(data))
+            .catch(error => console.error('Error:', error));
+            */
+        }
+    </script>
+</body>
+</html>
